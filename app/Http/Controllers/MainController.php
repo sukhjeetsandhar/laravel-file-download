@@ -46,7 +46,7 @@ class MainController extends Controller
         $file->name = $request->file('file')->getClientOriginalName();
         $file->path = Storage::putFile('files', $request->file('file') );
         $file->save();
-        return redirect(url('/'));
+        return back();
     }
 
     /**

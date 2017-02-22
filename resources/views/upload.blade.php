@@ -19,7 +19,7 @@
 </head>
 <body>
     <h2>Upload File</h2>
-    <form action="{{ route('file.upload') }}" method="POST" enctype="multipart/form-data" name="file-loader">
+    <form action="{{ route('file.upload') }}" method="POST" enctype="multipart/form-data" name="file-loader" id="file-loader">
     {{ csrf_field() }}
        <div class="file-upload">
             <label for="upload-1" class="btn">Upload</label>
@@ -28,8 +28,8 @@
         </div>
        <br>
        <button type="submit">submit</button>
-       <button type="reset" id="reset">Cancel</button>
-       
+       <button id="resetBtn" >Cancel</button>
+
     </form>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -66,7 +66,8 @@
 
             });
 
-            $('#reset').click(function(){
+            $('#resetBtn').click(function(){
+                document.getElementById("file-loader").reset();
                 $.ajax({
                     method: "GET",
                     url: "temp/delete" 
