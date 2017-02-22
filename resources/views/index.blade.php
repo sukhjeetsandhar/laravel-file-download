@@ -10,7 +10,7 @@
 
     @foreach($files as $file)
     <p>
-        #{{$loop->iteration}} <a href="{{ url('file/'. $file->id . '/download') }}" target="_blank">Download</a>
+        #{{$loop->iteration}} <a href="{{ url('file/'. $file->id . '/download') }}" target="_blank">{{ $file->name }}</a>
     </p>
     @endforeach
 </body>

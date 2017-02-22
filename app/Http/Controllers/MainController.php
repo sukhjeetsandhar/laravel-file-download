@@ -39,11 +39,12 @@ class MainController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'img' => 'required'
+            'file' => 'required'
         ]);
 
         $file = new File;
-        $file->path = Storage::putFile('files', $request->file('img') );
+        $file->name = $request->file('file')->getClientOriginalName();
+        $file->path = Storage::putFile('files', $request->file('file') );
         $file->save();
         return redirect(url('/'));
     }

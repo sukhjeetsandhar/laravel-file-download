@@ -10,7 +10,7 @@
     {{ csrf_field() }}
 
        <label for=""> select File   
-            <input type="file" name="img">
+            <input type="file" name="file">
        </label>
        
        <button type="submit" class="btn btn-default">button</button>
