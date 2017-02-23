@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\File;
+use App\Temp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -46,6 +47,10 @@ class MainController extends Controller
         $file->name = $request->file('file')->getClientOriginalName();
         $file->path = Storage::putFile('files', $request->file('file') );
         $file->save();
+
+        Temp::truncate();
+        Storage::deleteDirectory('temp');
+        
         return back();
     }
 
